@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root{
+  --violet:#7D34F5;
+  --indigo:#5C5FBE;
+  --blue:#4f8cff;
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+
+  --glass: rgba(255,255,255,.14);
+  --stroke: rgba(255,255,255,.22);
+
+  --shadow: 0 24px 70px rgba(0,0,0,.35);
+  --radius: 20px;
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  margin:0;
+  font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+
+
+  background: linear-gradient(180deg, #2b0b49 0%, #3d0f68 50%, #5a1b8a 100%);
+  min-height:100vh;
+}
+
+/* ====== CONTAINER ====== */
+.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+/* ====== HEADER / NAVBAR ====== */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(0,0,0,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.logo-icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(125,52,245,.95), rgba(79,140,255,.95));
+  box-shadow: 0 12px 30px rgba(125,52,245,.30);
+}
+
+/* Links */
+.nav-links{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.nav-links a{
+  color: var(--text);
+  text-decoration:none;
+  font-weight: 700;
+  font-size: 14px;
+
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  transition: filter .2s, transform .12s, background .2s;
+}
+
+.nav-links a:hover{
+  filter: brightness(1.06);
+  background: rgba(255,255,255,.10);
+}
+
+.nav-links a:active{
+  transform: translateY(1px);
+}
+
+/* ====== MAIN ====== */
+main.container{
+  /* quita el inline padding-top:120px del HTML si puedes,
+     pero si no, igual funciona */
+  padding: 34px 0 40px;
+}
+
+/* ====== CARD GLASS ====== */
+.panel-container.benefit-card{
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  padding: clamp(18px, 3vw, 28px);
+  position: relative;
+  overflow:hidden;
+
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+
+/* línea superior gradiente */
+.panel-container.benefit-card::before{
+  content:"";
+  position:absolute;
+  left: 22px;
+  right: 22px;
+  top: 16px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--violet), var(--indigo), var(--blue));
+  opacity:.95;
+}
+
+.panel-container h1{
+  margin: 24px 0 16px;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing:.2px;
+}
+
+/* ====== FORM ====== */
+.subscription-form{
+  display:grid;
+  gap: 14px;
+  margin-top: 8px;
+
+  /* mismo ancho para inputs y botón */
+  --fieldW: min(520px, 100%);
+  justify-items: center;
+}
+
+.form-group{
+  width: var(--fieldW);
+  display:grid;
+  gap: 8px;
+}
+
+.form-group label{
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* Inputs */
+.form-group input[type="text"],
+.form-group textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.88);
+  color: #101022;
+  outline:none;
+  transition: box-shadow .2s, border-color .2s, background .2s;
+}
+
+.form-group input[type="text"]{
+  height: 44px;
+}
+
+.form-group textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  background: rgba(255,255,255,.96);
+  border-color: rgba(125,52,245,.55);
+  box-shadow: 0 0 0 4px rgba(125,52,245,.18);
+}
+
+/* ====== BUTTON ====== */
+.btn{
+  border:0;
+  cursor:pointer;
+  font-family: inherit;
+}
+
+.btn.btn-primary{
+  width: var(--fieldW);
+  height: 48px;
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-weight: 800;
+  color: #fff;
+
+  background: linear-gradient(90deg, var(--violet), var(--blue));
+  box-shadow: 0 18px 40px rgba(125,52,245,.35);
+  transition: filter .2s, transform .12s;
+}
+
+.btn.btn-primary:hover{ filter: brightness(1.06); }
+.btn.btn-primary:active{ transform: translateY(1px); }
+
+/* ====== FOOTER ====== */
+footer{
+  margin-top: 22px;
+  padding: 10px 0 22px;
+}
+
+.footer-bottom{
+  color: rgba(255,255,255,.65);
+  font-size: 13px;
+  text-align:center;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 640px){
+  header .container{
+    flex-direction: column;
+    gap: 10px;
+    align-items:flex-start;
+    padding: 12px 0;
+  }
+
+  .nav-links{ flex-wrap: wrap; }
+
+  /* Si dejaste el inline padding-top:120px, en móvil se ve muy abajo.
+     Puedes compensar así: */
+  main.container{ padding-top: 18px !important; }
+}

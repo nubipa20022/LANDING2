@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUALY</title>
+    <link rel="icon" href="images/icons/signo.png" sizes="60x60" />
+    <link rel="stylesheet" href="../static/css/styles.css">
+<!-- Google Fonts placeholder -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Registros</h1>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Verificado</th>
+        <th>Fecha</th>
+    </tr>
+
+    {% for r in registros %}
+    <tr>
+        <td>{{ r.nombre }}</td>
+        <td>{{ r.correo }}</td>
+        <td>{{ r.verificado }}</td>
+        <td>{{ r.creado }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
