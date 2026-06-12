@@ -1,10 +1,27 @@
+#services:
+#  - type: web
+#    name: landing
+#    env: python
+#    plan: free
+#    buildCommand: "pip install -r requirements.txt"
+#    startCommand: "gunicorn prueba1.wsgi:application"
+ #   envVars:
+  #    - key: PYTHON_VERSION
+   #     value: 3.12
+
 services:
   - type: web
-    name: landing
+    name: landing1
     env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn LANDING2.wsgi:application"
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn prueba1.wsgi:application"
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12
+      - key: DATABASE_URL
+        fromDatabase:
+          name: landing1-db
+          property: connectionString
+
+databases:
+  - name: LANDING2-db
+    plan: free
