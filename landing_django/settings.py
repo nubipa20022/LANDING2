@@ -83,17 +83,15 @@ WSGI_APPLICATION = "landing_django.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": "equality",
-        "USER": "root",
-        "PASSWORD": "Pipo#21721",
-        "HOST": "localhost",
-        "PORT": "3306",
-        "OPTIONS": {
-            "charset": "utf8mb4",
-        }
+        "USER": "postgres",
+        "PASSWORD": "Pipo2172",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
+
 
 
 # Password validation

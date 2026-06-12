@@ -1,6 +1,8 @@
 Django==5.0.6
 gunicorn
+psycopg2-binary
 mysqlclient
 dj-database-url
 python-dotenv
-whitenoise[brotli]
+whitenoise[brotli]python manage.py migrate
+
