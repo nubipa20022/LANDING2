@@ -4,5 +4,5 @@ psycopg2-binary
 mysqlclient
 dj-database-url
 python-dotenv
-whitenoise[brotli]python manage.py migrate
+whitenoise[brotli]
 
